@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Produtos - Ótica Cactus</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1 class="titulo">Produtos</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="redes-sociais">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/suaotica" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" class="icone-rede">
+            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.8A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.9-8.6a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+        </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/suaotica" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" class="icone-rede">
+            <path d="M22 12A10 10 0 1 0 10.5 21.9v-6.3H8v-3.6h2.5V9.3c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 3.6h-2.4v6.3A10 10 0 0 0 22 12z"/>
+        </svg>
+    </a>
+  </header>
+
+  <section class="produtos">
+    <div class="grid">
+      <div class="item">
+        <img src="imagens/exemplar/oculos1.jpg" alt="Óculos de Sol" />
+        <p>Óculos de Sol - R$199</p>
+        <button onclick="adicionarCarrinho('Óculos de Sol', 199)">Adicionar ao Carrinho</button>
+      </div>
+      <div class="item">
+        <img src="imagens/exemplar/oculos2.jpg" alt="Óculos de Grau" />
+        <p>Óculos de Grau - R$249</p>
+        <button onclick="adicionarCarrinho('Óculos de Grau', 249)">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="carrinho">
+    <h3>🛒 Seu Carrinho</h3>
+    <ul id="lista-carrinho"></ul>
+    <p id="total">Total: R$0</p>
+    <a href="https://wa.me/5571999990000?text=Olá! Gostaria de finalizar minha compra." target="_blank" class="btn">Finalizar pelo WhatsApp</a>
+  </section>
+
+  <script>
+    let carrinho = [];
+    function adicionarCarrinho(produto, preco) {
+      carrinho.push({ produto, preco });
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById("lista-carrinho");
+      const total = document.getElementById("total");
+      lista.innerHTML = "";
+      let soma = 0;
+      carrinho.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.produto} - R$${item.preco}`;
+        lista.appendChild(li);
+        soma += item.preco;
+      });
+      total.textContent = `Total: R$${soma}`;
+    }
+  </script>
+</body>
+</html>
