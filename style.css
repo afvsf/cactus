@@ -189,7 +189,7 @@ footer {
   }
 
   .Titulo {
-    font-size: 26px;
+    font-size: 16px;
 
   .grid {
     flex-direction: column;
@@ -354,3 +354,4 @@ h1 {
             background: #1558b0;
 
         }
+
