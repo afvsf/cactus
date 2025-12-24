@@ -184,7 +184,14 @@ footer {
 /* === RESPONSIVIDADE === */
 @media (max-width: 768px) {
   nav ul {
-        align-items: center;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  font-size: 20px;
+  height: 30px;
   }
 
    .grid {
@@ -351,6 +358,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
