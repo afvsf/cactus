@@ -292,6 +292,17 @@ h1 {
             border: 0;
             border-radius: 8px;
         }
+.icone-rede {
+    width: 30px;
+    height: 30px;
+    fill: var(--cor-principal);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.redes-sociais a:hover .icone-rede {
+    transform: scale(1.15);
+    opacity: 0.8;
+}
 
 /* CARDS */
 .cards {
@@ -333,8 +344,8 @@ h1 {
 
 /* ÍCONES SVG - REDES SOCIAIS */
 .icone-rede {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     fill: var(--cor-principal);
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
@@ -358,6 +369,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
