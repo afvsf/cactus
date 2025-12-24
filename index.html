@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>Ótica Cactus - Salvador BA</title>
+  <meta name="description" content="Ótica Cactus - Saúde visual com estilo no coração do sertão baiano. Óculos de grau, sol e atendimento personalizado." />
+  <meta name="keywords" content="ótica, óculos, exame de vista, Salvador, sertão, cactos, nordeste, óculos de grau, óculos de sol" />
+  <meta name="author" content="Ótica Cactus" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo">Ótica Cactus</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="redes-sociais">
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/suaotica" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" class="icone-rede">
+            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.8A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.9-8.6a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
+        </svg>
+    </a>
+
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/suaotica" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" class="icone-rede">
+            <path d="M22 12A10 10 0 1 0 10.5 21.9v-6.3H8v-3.6h2.5V9.3c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 3.6h-2.4v6.3A10 10 0 0 0 22 12z"/>
+        </svg>
+    </a>
+</div>
+  </header>
+
+  <section class="banner-cacto">
+    <h2>ENCONTRE O ÓCULOS PERFEITO PARA VOCÊ!</h2>
+    <a href="https://wa.me/5571999990000?text=Olá! Gostaria de agendar um exame de vista." target="_blank" class="btn">ATENDIMENTO PELO WHATSAPP</a>
+  </section>
+
+  <section class="carrossel">
+  <h3>Modelos em Destaque</h3>
+  <div class="carrossel-container">
+    <button class="prev">&#10094;</button>
+    <div class="carrossel-itens">
+      <img src="imagens/oculos1.jpeg" alt="Óculos 1" />
+      <img src="imagens/oculos2.jpeg" alt="Óculos 2" />
+      <img src="imagens/oculos3.jpeg" alt="Óculos 3" />
+    </div>
+    <button class="next">&#10095;</button>
+  </div>
+</section>
+
+<div class="indicadores">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+  <span class="dot"></span>
+</div>
+
+
+
+  <section class="produtos1">
+    <h3>Promoções</h3>
+    <div class="grid">
+      <div class="item">
+        <img src="imagens/exemplar/oculos1.jpg" alt="Óculos de Sol" />
+        <p>Óculos de Sol - R$199</p>
+      </div>
+      <div class="item">
+        <img src="imagens/exemplar/oculos2.jpg" alt="Óculos de Grau" />
+        <p>Óculos de Grau - R$249</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>📍 Rua da Visão, 123 - Salvador, BA</p>
+    <p>📞 (71) 99999-0000 | ✉️ contato@visaoperfeita.com.br</p>
+    <p>© 2025 Ótica Visão Perfeita</p>
+  </footer>
+</body>
+</html>
+
+<script>
+  const carrossel = document.querySelector('.carrossel-itens');
+  const imagens = document.querySelectorAll('.carrossel-itens img');
+  const prevBtn = document.querySelector('.prev');
+  const nextBtn = document.querySelector('.next');
+  const dots = document.querySelectorAll('.dot');
+  let index = 0;
+
+  function mostrarSlide(i) {
+    const largura = imagens[0].clientWidth;
+    carrossel.style.transform = `translateX(${-i * largura}px)`;
+    atualizarIndicadores(i);
+  }
+
+  function atualizarIndicadores(i) {
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[i].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => {
+    index = (index > 0) ? index - 1 : imagens.length - 1;
+    mostrarSlide(index);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    index = (index < imagens.length - 1) ? index + 1 : 0;
+    mostrarSlide(index);
+  });
+
+  window.addEventListener('resize', () => mostrarSlide(index));
+
+  // Rotação automática
+  setInterval(() => {
+    index = (index < imagens.length - 1) ? index + 1 : 0;
+    mostrarSlide(index);
+  }, 4000);
+
+  // Swipe com toque
+  let startX = 0;
+  carrossel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  carrossel.addEventListener('touchend', (e) => {
+    let endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) {
+      index = (index < imagens.length - 1) ? index + 1 : 0;
+      mostrarSlide(index);
+    } else if (endX - startX > 50) {
+      index = (index > 0) ? index - 1 : imagens.length - 1;
+      mostrarSlide(index);
+    }
+  });
+</script>
