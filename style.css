@@ -188,6 +188,9 @@ footer {
     align-items: center;
   }
 
+  .Titulo {
+    font-size: 26px;
+
   .grid {
     flex-direction: column;
     align-items: center;
@@ -349,4 +352,5 @@ h1 {
 
         .rota-btn:hover {
             background: #1558b0;
+
         }
