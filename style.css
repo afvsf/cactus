@@ -280,6 +280,7 @@ footer {
 }
 h1 {
   color: coral;
+  font-size: 45px;
 }
 
 .contato-mapa iframe {
@@ -354,4 +355,5 @@ h1 {
             background: #1558b0;
 
         }
+
 
