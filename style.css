@@ -17,6 +17,11 @@ header {
     
 }
 
+.logo-container {
+   max-width: 50px;
+ max-height: 150px;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -374,6 +379,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
