@@ -17,9 +17,7 @@ header {
     
 }
 
-.logo {
-   max-width: 150px;
- max-height: 150px;
+.logo-container {
   text-align: center;
 }
 
@@ -380,6 +378,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
