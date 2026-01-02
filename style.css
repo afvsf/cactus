@@ -18,7 +18,11 @@ header {
 }
 
 .logo-container {
-  text-align: center;
+    text-align: center; /* Centraliza conteúdo inline como imagens */
+}
+.logo-container img {
+    max-width: 100%; /* Evita que a imagem ultrapasse o container */
+    height: auto;
 }
 
 nav ul {
@@ -378,6 +382,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
