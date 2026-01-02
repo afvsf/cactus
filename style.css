@@ -20,6 +20,7 @@ header {
 .logo-container {
    max-width: 50px;
  max-height: 150px;
+  align-items: center;
 }
 
 nav ul {
@@ -379,6 +380,7 @@ h1 {
             background: #1558b0;
 
         }
+
 
 
 
