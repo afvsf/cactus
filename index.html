@@ -3,149 +3,666 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ótica Cactus | Óculos de Grau e Sol em Salvador - BA</title>
+
+  <meta
+    name="description"
+    content="Ótica Cactus em Salvador - BA. Óculos de grau, solares, lentes e atendimento especializado com estilo e qualidade."
+  />
+
+  <meta
+    name="keywords"
+    content="ótica em Salvador, óculos de grau, óculos de sol, lentes, exame de vista, ótica cactus"
+  />
+
   <link rel="icon" type="image/png" href="favicon.png" />
-  <title>Ótica Cactus - Salvador BA</title>
-  <meta name="description" content="Ótica Cactus - Saúde visual com estilo no coração do sertão baiano. Óculos de grau, sol e atendimento personalizado." />
-  <meta name="keywords" content="ótica, óculos, exame de vista, Salvador, sertão, cactos, nordeste, óculos de grau, óculos de sol" />
-  <meta name="author" content="Ótica Cactus" />
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --verde:#3d5a40;
+      --verde-claro:#6b8e6e;
+      --bege:#f5f1ea;
+      --preto:#1f1f1f;
+      --cinza:#666;
+      --branco:#fff;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      background:var(--bege);
+      color:var(--preto);
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    img{
+      width:100%;
+      display:block;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      padding:18px 7%;
+      background:rgba(255,255,255,.95);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(10px);
+      box-shadow:0 2px 12px rgba(0,0,0,.06);
+    }
+
+    .logo{
+      width:120px;
+      border-radius:12px;
+    }
+
+    nav ul{
+      display:flex;
+      gap:35px;
+      list-style:none;
+    }
+
+    nav a{
+      color:var(--preto);
+      font-weight:500;
+      transition:.3s;
+      position:relative;
+    }
+
+    nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-5px;
+      width:0%;
+      height:2px;
+      background:var(--verde);
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:var(--verde);
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .redes-sociais{
+      display:flex;
+      gap:14px;
+    }
+
+    .icone-rede{
+      width:24px;
+      height:24px;
+      fill:var(--verde);
+      transition:.3s;
+    }
+
+    .icone-rede:hover{
+      transform:scale(1.1);
+      fill:var(--verde-claro);
+    }
+
+    /* HERO */
+
+    .banner-cacto{
+      min-height:88vh;
+      background:
+        linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+        url('banner.jpg') center/cover no-repeat;
+
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      color:var(--branco);
+    }
+
+    .banner-cacto h2{
+      font-size:3.2rem;
+      max-width:850px;
+      line-height:1.2;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+
+    .banner-cacto p{
+      font-size:1.1rem;
+      max-width:700px;
+      margin-bottom:35px;
+      color:#f1f1f1;
+    }
+
+    .btn{
+      background:var(--verde);
+      color:white;
+      padding:16px 34px;
+      border-radius:40px;
+      font-weight:600;
+      transition:.3s;
+      box-shadow:0 10px 20px rgba(0,0,0,.2);
+    }
+
+    .btn:hover{
+      background:var(--verde-claro);
+      transform:translateY(-3px);
+    }
+
+    /* CARROSSEL */
+
+    .carrossel{
+      padding:90px 7%;
+    }
+
+    .titulo-section{
+      text-align:center;
+      font-size:2.3rem;
+      margin-bottom:50px;
+      color:var(--verde);
+    }
+
+    .carrossel-container{
+      position:relative;
+      overflow:hidden;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08);
+    }
+
+    .carrossel-itens{
+      display:flex;
+      transition:transform .5s ease;
+    }
+
+    .carrossel-itens img{
+      min-width:100%;
+      height:520px;
+      object-fit:cover;
+    }
+
+    .prev,
+    .next{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(255,255,255,.8);
+      border:none;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:1.3rem;
+      transition:.3s;
+      z-index:10;
+    }
+
+    .prev:hover,
+    .next:hover{
+      background:white;
+    }
+
+    .prev{
+      left:20px;
+    }
+
+    .next{
+      right:20px;
+    }
+
+    .indicadores{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-top:25px;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#bbb;
+      transition:.3s;
+    }
+
+    .dot.active{
+      background:var(--verde);
+      transform:scale(1.2);
+    }
+
+    /* BENEFÍCIOS */
+
+    .beneficios{
+      padding:40px 7% 90px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      padding:35px;
+      border-radius:24px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,.06);
+      transition:.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin:18px 0 10px;
+      color:var(--verde);
+    }
+
+    .card p{
+      color:var(--cinza);
+      line-height:1.6;
+    }
+
+    /* PRODUTOS */
+
+    .produtos{
+      padding:90px 7%;
+      background:white;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:35px;
+    }
+
+    .item{
+      background:var(--bege);
+      border-radius:24px;
+      overflow:hidden;
+      transition:.3s;
+      box-shadow:0 10px 20px rgba(0,0,0,.05);
+    }
+
+    .item:hover{
+      transform:translateY(-6px);
+    }
+
+    .item img{
+      height:320px;
+      object-fit:cover;
+    }
+
+    .info-produto{
+      padding:22px;
+    }
+
+    .info-produto h4{
+      margin-bottom:10px;
+      font-size:1.2rem;
+    }
+
+    .preco{
+      color:var(--verde);
+      font-size:1.4rem;
+      font-weight:700;
+    }
+
+    /* CTA */
+
+    .cta{
+      padding:90px 7%;
+      text-align:center;
+      background:linear-gradient(135deg, var(--verde), var(--verde-claro));
+      color:white;
+    }
+
+    .cta h2{
+      font-size:2.5rem;
+      margin-bottom:20px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      margin-bottom:35px;
+      line-height:1.8;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#1d1d1d;
+      color:#ddd;
+      padding:50px 7%;
+      text-align:center;
+    }
+
+    footer p{
+      margin:10px 0;
+    }
+
+    /* RESPONSIVO */
+
+    @media(max-width:900px){
+
+      header{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav ul{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .banner-cacto h2{
+        font-size:2.2rem;
+      }
+
+      .carrossel-itens img{
+        height:350px;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .banner-cacto h2{
+        font-size:1.8rem;
+      }
+
+      .titulo-section{
+        font-size:1.8rem;
+      }
+
+      .cta h2{
+        font-size:2rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- HEADER -->
+
   <header>
+
     <div class="logo-container">
-        <img class="logo" src="logo.jpeg" alt="logo" />
+      <img class="logo" src="logo.jpeg" alt="Logo Ótica Cactus" />
     </div>
+
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="produtos.html">Produtos</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-        <li><a href="contato.html">Contato</a></li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Produtos</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
       </ul>
     </nav>
-    <div class="redes-sociais">
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/suaotica" target="_blank" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" class="icone-rede">
-            <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.8A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.9-8.6a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
-        </svg>
-    </a>
 
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/suaotica" target="_blank" aria-label="Facebook">
+    <div class="redes-sociais">
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/suaotica" target="_blank">
+
         <svg viewBox="0 0 24 24" class="icone-rede">
-            <path d="M22 12A10 10 0 1 0 10.5 21.9v-6.3H8v-3.6h2.5V9.3c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 3.6h-2.4v6.3A10 10 0 0 0 22 12z"/>
+          <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm10 2c1.7 0 3 1.3 3 3v10c0 1.7-1.3 3-3 3H7c-1.7 0-3-1.3-3-3V7c0-1.7 1.3-3 3-3h10zm-5 3.2A4.8 4.8 0 1 0 16.8 12 4.8 4.8 0 0 0 12 7.2zm0 7.8A3 3 0 1 1 15 12a3 3 0 0 1-3 3zm4.9-8.6a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1z"/>
         </svg>
-    </a>
-</div>
+
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/suaotica" target="_blank">
+
+        <svg viewBox="0 0 24 24" class="icone-rede">
+          <path d="M22 12A10 10 0 1 0 10.5 21.9v-6.3H8v-3.6h2.5V9.3c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6v1.9h2.9l-.5 3.6h-2.4v6.3A10 10 0 0 0 22 12z"/>
+        </svg>
+
+      </a>
+
+    </div>
+
   </header>
 
+  <!-- HERO -->
+
   <section class="banner-cacto">
-    <h2>ENCONTRE O ÓCULOS PERFEITO PARA VOCÊ!</h2>
-    <a href="https://wa.me/5571999990000?text=Olá! Gostaria de agendar um exame de vista." target="_blank" class="btn">ATENDIMENTO PELO WHATSAPP</a>
+
+    <h2>
+      Estilo, conforto e qualidade para transformar sua visão
+    </h2>
+
+    <p>
+      Descubra armações modernas, lentes de alta qualidade e atendimento
+      especializado para você enxergar o mundo com mais estilo.
+    </p>
+
+    <a
+      href="https://wa.me/5571999990000?text=Olá! Gostaria de agendar um atendimento."
+      target="_blank"
+      class="btn"
+    >
+      FALAR NO WHATSAPP
+    </a>
+
   </section>
+
+  <!-- CARROSSEL -->
 
   <section class="carrossel">
-  <h3>Modelos em Destaque</h3>
-  <div class="carrossel-container">
-    <button class="prev">&#10094;</button>
-    <div class="carrossel-itens">
-      <img src="oculos1.jpeg" alt="Óculos 1" />
-      <img src="oculos2.jpeg" alt="Óculos 2" />
-      <img src="oculos3.jpeg" alt="Óculos 3" />
-    </div>
-    <button class="next">&#10095;</button>
-  </div>
-</section>
 
-<div class="indicadores">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-  <span class="dot"></span>
-</div>
+    <h2 class="titulo-section">Modelos em Destaque</h2>
 
+    <div class="carrossel-container">
 
+      <button class="prev">&#10094;</button>
 
-  <section class="produtos1">
-    <h3>Promoções</h3>
-    <div class="grid">
-      <div class="item">
-        <img src="eoculos1.jpg" alt="Óculos de Sol" />
-        <p>Óculos de Sol - R$199</p>
+      <div class="carrossel-itens">
+        <img src="oculos1.jpeg" alt="Óculos moderno" />
+        <img src="oculos2.jpeg" alt="Óculos premium" />
+        <img src="oculos3.jpeg" alt="Óculos elegante" />
       </div>
-      <div class="item">
-        <img src="eoculos2.jpg" alt="Óculos de Grau" />
-        <p>Óculos de Grau - R$249</p>
-      </div>
+
+      <button class="next">&#10095;</button>
+
     </div>
+
+    <div class="indicadores">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
   </section>
 
+  <!-- BENEFÍCIOS -->
+
+  <section class="beneficios">
+
+    <h2 class="titulo-section">Por que escolher a Ótica Cactus?</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Atendimento Humanizado</h3>
+        <p>
+          Nossa equipe oferece suporte personalizado para encontrar o modelo ideal.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Armações Modernas</h3>
+        <p>
+          Trabalhamos com modelos atuais, elegantes e confortáveis.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Lentes de Qualidade</h3>
+        <p>
+          Mais proteção, nitidez e conforto para sua rotina.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUTOS -->
+
+  <section class="produtos">
+
+    <h2 class="titulo-section">Promoções da Semana</h2>
+
+    <div class="grid">
+
+      <div class="item">
+
+        <img src="eoculos1.jpg" alt="Óculos de Sol" />
+
+        <div class="info-produto">
+          <h4>Óculos de Sol Premium</h4>
+          <p class="preco">R$ 199</p>
+        </div>
+
+      </div>
+
+      <div class="item">
+
+        <img src="eoculos2.jpg" alt="Óculos de Grau" />
+
+        <div class="info-produto">
+          <h4>Óculos de Grau Moderno</h4>
+          <p class="preco">R$ 249</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <h2>Agende seu atendimento agora</h2>
+
+    <p>
+      Fale com nossa equipe pelo WhatsApp e encontre o modelo perfeito para você.
+    </p>
+
+    <a
+      href="https://wa.me/5571999990000"
+      target="_blank"
+      class="btn"
+    >
+      Chamar no WhatsApp
+    </a>
+
+  </section>
+
+  <!-- FOOTER -->
+
   <footer>
-    <p>📍 Rua da Visão, 123 - Salvador, BA</p>
-    <p>📞 (71) 99999-0000 | ✉️ contato@visaoperfeita.com.br</p>
-    <p>© 2025 Ótica Visão Perfeita</p>
+
+    <p>📍 Salvador - Bahia</p>
+
+    <p>📞 (71) 99999-0000</p>
+
+    <p>✉️ contato@oticacactus.com.br</p>
+
+    <p>© 2026 Ótica Cactus - Todos os direitos reservados</p>
+
   </footer>
+
+  <script>
+
+    const carrossel = document.querySelector('.carrossel-itens');
+    const imagens = document.querySelectorAll('.carrossel-itens img');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    const dots = document.querySelectorAll('.dot');
+
+    let index = 0;
+
+    function mostrarSlide(i){
+
+      const largura = imagens[0].clientWidth;
+
+      carrossel.style.transform =
+      `translateX(${-i * largura}px)`;
+
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      dots[i].classList.add('active');
+    }
+
+    nextBtn.addEventListener('click', () => {
+
+      index =
+      index < imagens.length - 1 ? index + 1 : 0;
+
+      mostrarSlide(index);
+
+    });
+
+    prevBtn.addEventListener('click', () => {
+
+      index =
+      index > 0 ? index - 1 : imagens.length - 1;
+
+      mostrarSlide(index);
+
+    });
+
+    setInterval(() => {
+
+      index =
+      index < imagens.length - 1 ? index + 1 : 0;
+
+      mostrarSlide(index);
+
+    }, 4000);
+
+    window.addEventListener('resize', () => {
+      mostrarSlide(index);
+    });
+
+  </script>
+
 </body>
 </html>
-
-<script>
-  const carrossel = document.querySelector('.carrossel-itens');
-  const imagens = document.querySelectorAll('.carrossel-itens img');
-  const prevBtn = document.querySelector('.prev');
-  const nextBtn = document.querySelector('.next');
-  const dots = document.querySelectorAll('.dot');
-  let index = 0;
-
-  function mostrarSlide(i) {
-    const largura = imagens[0].clientWidth;
-    carrossel.style.transform = `translateX(${-i * largura}px)`;
-    atualizarIndicadores(i);
-  }
-
-  function atualizarIndicadores(i) {
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[i].classList.add('active');
-  }
-
-  prevBtn.addEventListener('click', () => {
-    index = (index > 0) ? index - 1 : imagens.length - 1;
-    mostrarSlide(index);
-  });
-
-  nextBtn.addEventListener('click', () => {
-    index = (index < imagens.length - 1) ? index + 1 : 0;
-    mostrarSlide(index);
-  });
-
-  window.addEventListener('resize', () => mostrarSlide(index));
-
-  // Rotação automática
-  setInterval(() => {
-    index = (index < imagens.length - 1) ? index + 1 : 0;
-    mostrarSlide(index);
-  }, 4000);
-
-  // Swipe com toque
-  let startX = 0;
-  carrossel.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  carrossel.addEventListener('touchend', (e) => {
-    let endX = e.changedTouches[0].clientX;
-    if (startX - endX > 50) {
-      index = (index < imagens.length - 1) ? index + 1 : 0;
-      mostrarSlide(index);
-    } else if (endX - startX > 50) {
-      index = (index > 0) ? index - 1 : imagens.length - 1;
-      mostrarSlide(index);
-    }
-  });
-</script>
-
-
-
 
 
 
